@@ -35,6 +35,12 @@ with open("/Users/aprilgranzow/wow-combat-log-parser/logFiles/WoWCombatLog-03132
   combatLog = file.read()
   lines = combatLog.splitlines()
   eventArgsLengthDict = eventArgLengthDictionary(lines)
-  # for event, lengths in eventArgsLengthDict:
-  #   if lengths.
+  print(eventArgsLengthDict)
+  for event, lengths in eventArgsLengthDict.iteritems():
+    lengthString = ''
+    if len(lengths) > 1:
+      lengthString += str(min(lengths)) + "-" + str(max(lengths))
+    else:
+      lengthString += str(min(lengths))
+    print(event + ": " + lengthString)
   # print((map(lambda x: splitEvent(x).groups()[1], peakLines(lines))))
